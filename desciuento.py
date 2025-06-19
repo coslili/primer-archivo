@@ -43,3 +43,6 @@ producto1= Producto("jabon", 25.50)
 producto1.aplicar_descuento(25)    #Aplicar un 25 porciento de descuento
 producto1.mostrar_informacion()  #imprime informacion actualizada
 
+producto2 = Producto("Pan", 40.3)
+producto2.aplicar_descuento(25)    #Aplicar un 25 porciento de descuento
+producto2.mostrar_informacion()  #imprime informacion actualizada
