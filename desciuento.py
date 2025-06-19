@@ -18,3 +18,6 @@ class Producto:
 producto1= Producto("Jamon", 55.00)
 producto1.aplicar_descuento(25)    #Aplicar un 25 porciento de descuento
 producto1.mostrar_informacion()  #imprime informacion actualizada
+produ2 = Producto("Pan", 30)
+produ2.aplicar_descuento(25)    #Aplicar un 25 porciento de descuento
+produ2.mostrar_informacion()  #imprime informacion actualizada
