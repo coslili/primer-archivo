@@ -1,48 +1,52 @@
-
 class Producto:
     """
-    Clase para crear objetos tipo Producto
+    Clase base para crear objetos tipo Producto
     """
-    
     def __init__(self, nombre, precio):
+        self.nombre = nombre
+        self.precio = precio
+
+    def aplicar_descuento(self, porcentaje):
         """
-        Inicializamos el constructor
+        Aplica un descuento al precio del producto.
         """
-        self.nombre = nombre  #inicializamos la variable nombre
-        self.precio = precio  #inicializamos la variable precio
+        descuento = self.precio * (porcentaje / 100)
+        self.precio -= descuento
 
+    def mostrar_informacion(self):
+        """
+        Muestra la información del producto.
+        """
+        print(f"Producto: {self.nombre}")
+        print(f"Precio actual: $ {self.precio:.2f}")
 
-    def aplicar_descuento (self,porcentaje):
-         """
-         Metodo para aplicar un descuento.
-         Parametros:
-         self (str): El nombre del producto.
-         porcentaje (double): porcentaje a aplicar
-         """
+# Subclase para productos alimenticios
+class ProductoAlimenticio(Producto):
+    def __init__(self, nombre, precio, fecha_caducidad):
+        super().__init__(nombre, precio)  # reutilizamos el constructor de la clase base
+        self.fecha_caducidad = fecha_caducidad
 
-         descuento=self.precio * (porcentaje / 100) #realiza operacion
-         self.precio -= descuento  #asignamos el valor a self.precio
-    
+    def mostrar_informacion(self):
+        super().mostrar_informacion()
+        print(f"Fecha de caducidad: {self.fecha_caducidad}")
 
-    def mostrar_informacion (self):
-         """
-         Metodo para mostrar la información en consola
-         """
-         print(f"Producto: {self.nombre}")
-         print(f"Precio actual: $ {self.precio:.2f}")
+# Subclase para productos electrónicos
+class ProductoElectronico(Producto):
+    def __init__(self, nombre, precio, garantia_meses):
+        super().__init__(nombre, precio)
+        self.garantia_meses = garantia_meses
 
+    def mostrar_informacion(self):
+        super().mostrar_informacion()
+        print(f"Meses de garantía: {self.garantia_meses}")
 
+# Ejemplo de uso
+producto1 = ProductoAlimenticio("Jamon", 55.00, "2025-12-31")
+producto1.aplicar_descuento(25)
+producto1.mostrar_informacion()
 
+print()
 
- #creacion de interaccion con el objeto
-producto1= Producto("Jamon", 55.00)
-producto1.aplicar_descuento(25)    #Aplicar un 25 porciento de descuento
-producto1.mostrar_informacion()  #imprime informacion actualizada
-
-producto1= Producto("jabon", 25.50)
-producto1.aplicar_descuento(25)    #Aplicar un 25 porciento de descuento
-producto1.mostrar_informacion()  #imprime informacion actualizada
-
-producto2 = Producto("Pan", 40.3)
-producto2.aplicar_descuento(25)    #Aplicar un 25 porciento de descuento
-producto2.mostrar_informacion()  #imprime informacion actualizada
+producto2 = ProductoElectronico("Televisor", 1200.00, 24)
+producto2.aplicar_descuento(10)
+producto2.mostrar_informacion()
