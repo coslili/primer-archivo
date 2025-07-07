@@ -40,7 +40,7 @@ class ProductoElectronico(Producto):
         super().mostrar_informacion()
         print(f"Meses de garantía: {self.garantia_meses}")
 
-# Ejemplo de uso
+
 producto1 = ProductoAlimenticio("Jamon", 55.00, "2025-12-31")
 producto1.aplicar_descuento(25)
 producto1.mostrar_informacion()
